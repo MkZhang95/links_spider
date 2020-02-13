@@ -21,6 +21,7 @@ class LinksSpiderPipeline(object):
           source_date      TEXT,
           source_link      TEXT,
           status           TEXT,
+          archived_link    TEXT,
           target_link      TEXT
         )""")
 
@@ -37,9 +38,9 @@ class LinksSpiderPipeline(object):
 
     def storeInDB_link(self, item):
         self.cur.execute(\
-            "INSERT INTO link(source_date, source_link,status, target_link)\
-            VALUES(?, ?, ?, ?)",\
-            (item.get('source_date', ''), item.get('source_link', ''), item.get('status', ''), item.get('target_link', '')))
+            "INSERT INTO link(source_date, source_link,status,archived_link, target_link)\
+            VALUES(?, ?, ?, ?,?)",\
+            (item.get('source_date', ''), item.get('source_link', ''), item.get('status', ''),item.get('archived_link', ''),item.get('target_link', '')))
 
         print('Link Added in Database')
         self.con.commit()

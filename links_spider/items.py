@@ -15,6 +15,7 @@ class LinksSpiderItem(scrapy.Item):
 
 class LinkItem(scrapy.Item):
     source_link = scrapy.Field()
+    archived_link = scrapy.Field()
     target_link = scrapy.Field()
     status = scrapy.Field()
     source_date = scrapy.Field()

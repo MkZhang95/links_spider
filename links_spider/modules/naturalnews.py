@@ -17,7 +17,7 @@ class naturalnews:
         all_links = []
         content = self.html.xpath("//div[@id='Article']//a[starts-with(@href,'http://')]/@href")
         for ele in content:
-            if ele not in all_links:
+            if ele not in all_links and "vacbook" not in ele:
                 all_links.append(ele)
         return all_links
 

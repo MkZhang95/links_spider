@@ -16,9 +16,10 @@ NEWSPIDER_MODULE = 'links_spider.spiders'
 
 # Export as csv Feed
 
+DOWNLOAD_TIMEOUT = 15
 
 
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 5
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'links_spider (+http://www.yourdomain.com)'
