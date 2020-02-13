@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'links_spider.spiders'
 DOWNLOAD_TIMEOUT = 15
 
 
-DOWNLOAD_DELAY = 5
+DOWNLOAD_DELAY = 0.5
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'links_spider (+http://www.yourdomain.com)'

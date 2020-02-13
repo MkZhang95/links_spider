@@ -18,7 +18,7 @@ class activistpost:
         all_links = []
         content = self.html.xpath("//div[@class = 'entry-content clearfix']//p//a/@href")
         for ele in content:
-            if ele not in all_links and 'sign-up' not in ele:
+            if ele not in all_links and 'sign-up' not in ele and "activistpost" not in ele:
                 all_links.append(ele)
             elif 'sign-up' in ele:
                 break
