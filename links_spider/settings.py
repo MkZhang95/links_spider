@@ -13,22 +13,27 @@ BOT_NAME = 'links_spider'
 
 SPIDER_MODULES = ['links_spider.spiders']
 NEWSPIDER_MODULE = 'links_spider.spiders'
-
 # Export as csv Feed
 
 DOWNLOAD_TIMEOUT = 15
 
-
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 3
+CONCURRENT_REQUESTS = 50
+CONCURRENT_REQUESTS_PER_DOMAIN = 16
+CONCURRENT_REQUESTS_PER_IP = 16
+COOKIES_ENABLED = False
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'links_spider (+http://www.yourdomain.com)'
 
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
+SPIDER_MIDDLEWARES = {
+    'links_spider.middlewares.FilterResponses': 543,
+}
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -96,3 +101,4 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
