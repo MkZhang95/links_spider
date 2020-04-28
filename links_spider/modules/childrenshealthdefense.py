@@ -7,7 +7,10 @@ class childrenshealthdefense:
     def __init__(self, url):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+
         }
+        self.url = url
+        self.homepage = "https://childrenshealthdefense.org/"
         response = requests.get(url, headers=headers)
         parser_html = etree.HTMLParser()
         self.html = etree.fromstring(response.content, parser_html)
@@ -16,7 +19,10 @@ class childrenshealthdefense:
     def get_all_links(self):
         # get the links
         all_links = []
-        content = self.html.xpath("//article[@class = 'grid8']//p//a/@href")
+        if self.url == self.homepage:
+            content = self.html.xpath("//div[@class = 'news-item-listing']//a/@href")
+        else:
+            content = self.html.xpath("//article[@class = 'grid8']//p//a/@href")
         for ele in content:
             if ele not in all_links and 'sign-up' not in ele:
                 all_links.append(ele)
